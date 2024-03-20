@@ -38,7 +38,7 @@ public:
 	void displayPoints(int points) const;
 	void displayLevel(int level) const;
 	void displayWelcome() const;
-	void displayGoodbye() const;
+	void displayGoodbye(int points, int level) const;
 	char getInput() const;
 };
 void Clicker_View::displayPoints(int points) const {
@@ -54,15 +54,15 @@ void Clicker_View::displayWelcome() const {
 
 }
 
-void Clicker_View::displayGoodbye() const {
+void Clicker_View::displayGoodbye(int points, int level) const {
 	std::cout << "Thanks for game !" << std::endl;
-	std::cout << "Final Level : "<< &Clicker_View::displayLevel<< std::endl;
-	std::cout << "Final Points : " << &Clicker_View::displayPoints << std::endl;
+	std::cout << "Final Level : "<< level<< std::endl;
+	std::cout << "Final Points : " << points << std::endl;
 }
 
 char Clicker_View::getInput() const {
 	char choice;
-	std::cout << "Click (b) to play or (e) to quit ";
+	std::cout << "Click (b) to play or (e) to quit "<<std::endl;
 	std::cin >> choice;
 	return choice;
 }
@@ -73,26 +73,32 @@ private:
 	Clicker_View view;
 public:
 	void run_game();
-	char choice;
 };
 
 void Clicker_Controller::run_game() {
 	view.displayWelcome();
 
+	char choice;
+	do {
+		view.displayLevel(model.getLevel());
+		view.displayPoints(model.getPoints());
+		
+		choice = view.getInput();
+
+		if (choice =='b') {
+			model.click();
+		}
+
+	} while (choice != 'e');
+		view.displayGoodbye(model.getPoints(), model.getLevel());
 
 
 }
 
 int main()
 {
-	cout << "Hello CMake." << endl;
-	Clicker_View test_view;
-	Clicker_Model test_model;
-	Clicker_Controller test_controller;
-	test_view.displayLevel(test_model.getLevel());
-	test_view.displayPoints(test_model.getPoints());
-	test_view.displayGoodbye();
-	test_controller.run_game();
+	Clicker_Controller controller;
+	controller.run_game();
 	
 	return 0;
 
