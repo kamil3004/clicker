@@ -27,8 +27,8 @@ Clicker_Model::Clicker_Model() : points(0), level(1) {};
 
 int	Clicker_Model::getPoints() const {
 
-		return points;
-	}
+	return points;
+}
 int Clicker_Model::getLevel() const {
 
 	return level;
