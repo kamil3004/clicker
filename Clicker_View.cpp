@@ -19,6 +19,8 @@ void Clicker_View::displayLevel(int level) const {
 
 void Clicker_View::displayWelcome() const {
     std::cout << "Hello, welcome in the Clicker !" <<std::endl;
+    std::cout << "1. Start a new game" << std::endl;
+    std::cout << "2. Load a saved game" << std::endl;
 }
 
 void Clicker_View::displayGoodbye(int points, int level) const {
@@ -39,3 +41,13 @@ void Clicker_View::displayWrongKey() const {
 
     std::cout << "Wrong key!!! Please try again." << std::endl;
 }
+char Clicker_View::getChoice() {
+    char choice;
+    std::cout << "Enter your choice: ";
+    std::cin >> choice;
+    return choice;
+}
+void Clicker_View::displayInvalidChoice()  {
+    std::cout << "Invalid choice. Please try again." << std::endl;
+}
+

@@ -24,9 +24,10 @@ int Clicker_Model::getLevel() const {
 
     return level;
 }
-std::string Clicker_Model::convertToRoman(int num) const { // przenieść do modelu
+std::string Clicker_Model::convertToRoman(int num) const { 
     if (num <= 0 || num > 3999)
-        return "Invalid";
+        return "Game finished!!"; 
+    
 
     std::string result = "";
     std::vector<int> values = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
@@ -40,4 +41,25 @@ std::string Clicker_Model::convertToRoman(int num) const { // przenieść do mod
     }
 
     return result;
+  
+}
+
+void Clicker_Model::loadGame() {
+    std::ifstream file(saveFile);
+    if (file.is_open()) {
+        file >> points >> level;
+        file.close();
+    }
+    else {
+        std::cerr << "Failed to load game state. Starting new game." << std::endl;
+    }
+    
+}
+
+void Clicker_Model::saveGame() {
+    std::ofstream file(saveFile);
+    if (file.is_open()) {
+        file << points << " " << level;
+        file.close();
+    }
 }

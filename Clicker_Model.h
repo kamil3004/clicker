@@ -18,6 +18,8 @@ public:
     int getPoints() const;
     int getLevel() const;
     std::string convertToRoman(int num) const;
+    void loadGame();
+    void saveGame();
 };
 
 

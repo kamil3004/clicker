@@ -16,6 +16,8 @@ public:
     void displayGoodbye(int points, int level) const;
     char getInput() const;
     void displayWrongKey() const;
+    char getChoice();
+    void displayInvalidChoice();
 };
 
 
