@@ -12,7 +12,7 @@ endif()
 project ("clicker")
 
 # Dodaj źródło do pliku wykonywalnego tego projektu.
-add_executable (clicker "clicker.cpp")
+add_executable (clicker "clicker.cpp" Clicker_Model.cpp Clicker_Model.h Clicker_View.cpp Clicker_View.h Clicker_Controller.cpp Clicker_Controller.h)
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET clicker PROPERTY CXX_STANDARD 20)
