@@ -10,6 +10,7 @@ class Clicker_Model {
 private:
     int points;
     int level;
+    std::string saveFile;
 
 public:
     Clicker_Model();

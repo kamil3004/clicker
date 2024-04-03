@@ -5,8 +5,9 @@
 #include "Clicker_Model.h"
 #include <iostream>
 #include <vector>
+#include <fstream>
 
-Clicker_Model::Clicker_Model() : points(0), level(1) {};
+Clicker_Model::Clicker_Model() : points(0), level(1) ,saveFile("game_state.txt") {};
 void Clicker_Model::click() {
     points++;
     if (points % 5 == 0)
