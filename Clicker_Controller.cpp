@@ -9,10 +9,10 @@ void Clicker_Controller::run_game() {
     view.displayWelcome();
 
     char choice = view.getChoice();
-      if (choice == '1') {
-        model = model;
+      if (choice == menu_NewGame) {
+        model;
     }
-    else if (choice == '2') {
+    else if (choice == menu_OldGame) {
         model.loadGame();
     }
     else {
@@ -25,14 +25,16 @@ void Clicker_Controller::run_game() {
         view.displayPoints(model.getPoints());
         choice = view.getInput();
 
-        if (choice =='b') {
+        if (choice == key_click) {
             model.click();
         }
-        else if (choice != 'e') {
+        else if (choice != key_exit) {
             view.displayWrongKey();
         }    
     } 
-    while (choice != 'e');
+    while (choice != key_exit);
     model.saveGame();
     view.displayGoodbye(model.getPoints(), model.getLevel());
 }
+
+

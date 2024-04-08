@@ -10,8 +10,8 @@ class Clicker_Model {
 private:
     int points;
     int level;
-    std::string saveFile;
-
+    const std::string saveFile;
+  
 public:
     Clicker_Model();
     void click();
@@ -19,7 +19,8 @@ public:
     int getLevel() const;
     std::string convertToRoman(int num) const;
     void loadGame();
-    void saveGame();
+    void saveGame(); 
+    
 };
 
 
